@@ -19,7 +19,7 @@
 
         <div id="main-container">
 
-            <main class="main-yellow">
+            <main class="main-lightblue">
 
                 <div class="page">
 
@@ -46,12 +46,8 @@
                                 <br><br>
                         </form> -->
 
-                        <br>
-
                         <label class="filtrera" for="inputFilter">Filtrera på: </label>
-                        <input id="inputFilter" type="text" value="">
-
-                    
+                        <input onkeyup="filterAktiviteter(inputFilter.value)" id="inputFilter" type="text" value="">
                     </div>
 
                 </div>
@@ -72,7 +68,7 @@
 
             </main>
         </div>
-        <footer class="flex-center-row pink">Copyright &copy; Ilona Shabou</footer>
+        <footer class="flex-center-row blue">Copyright &copy; Ilona Shabou</footer>
 
     </div>
 

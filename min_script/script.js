@@ -7,7 +7,8 @@ classlistEl.appendChild(aktivitetListItem);
 // Skapar elementen som ska vara i klassraden:
     // <span>inputName</span>
 //skapar sublementen
-let aktivitetlistItemAktivitet = document.createElement("span");
+let classlistItemAktivitet = document.createElement("span");
+classListItemAktivitet.id = "aktivitet-list-item-aktivitet";
 classListItemAktivitet.innerText = inputAktivitet;
 
 let aktivitetlistItemRemoveButton = document.createElement("button");
@@ -19,10 +20,12 @@ classListItem.appendChild(classListItemAktivitet)
 classListItem.appendChild(classListItemRemoveButton)
 
 
+
+
 function createAktivitet(inputAktivitet){ 
     let classlistEl = document.querySelector(".aktivitet-list");
 
-    console.log("hej") 
+    console.log("la till") 
     if(document.querySelector('.add-aktivitet input').value.length == 0){
         alert("Du måste skriva in en aktivitet, delli")}
 
@@ -36,8 +39,41 @@ classlistEl.innerHTML += `
 }
 
 function removeAktivitet(parentElement){
-    console.log("hejsan");
+    console.log("tog bort");
     parentElement.remove();
 
 }
 
+// function filterAktiviteter(filterValue){
+//     let classlistElements = document.querySelectorAll(".aktivitet-list-item");
+    
+//     classlistElements.forEach((listItem)=>{
+//         const itemAktivitet = listItem.querySelector("#aktivitet-list-item-aktivitet").innerText;
+
+//         console.log(itemAktivitet, filterValue);
+//         console.log(itemAktivitet, indexOf(filterValue));
+//         if(itemAktivitet.indexOf(filterValue) > -1)
+//         {
+//             value.classList.add("hide");
+
+//         }
+//     });
+// }
+
+
+function filterAktiviteter(filterValue)
+{
+    let classlistElements = document.querySelectorAll(".aktivitet-list-items");
+    // let inputValue = document.querySelector("#inputFilter");
+
+    classlistElements.forEach((listItem)=>{
+        const itemAktivitet = listItem.querySelector("#aktivitet-list-item-aktivitet").innerText;
+        console.log(itemAktivitet);
+        console.log("funkar");
+
+        if(itemAktivitet.indexOf(filterValue) > -1 )
+        {
+            value.classlist.add(".hide");
+        }
+    });
+}

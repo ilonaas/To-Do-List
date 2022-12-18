@@ -91,7 +91,7 @@ h1 {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    max-height: 110px;
+    max-height: 180px;
     overflow-y: scroll;
     overflow-x: hidden;
 }
@@ -133,11 +133,7 @@ h1 {
     background-color: rgba(157, 206, 246, 0.912);
 }
 
-.pink {
-    background-color: rgb(157, 206, 246, 0.912);
-}
-
-.main-yellow {
+.main-lightblue {
     background-color: rgba(195, 213, 243, 0.246);
 }
 
@@ -164,7 +160,6 @@ input{
     padding: 10px;
 }
 
-
 .items{
     border-radius: 5px;
     align-items: center;
@@ -175,4 +170,8 @@ input{
     margin-bottom: 8px;
     padding: 5px 10px;
     display: flex;
+}
+
+.hide{
+    display: none;
 }
