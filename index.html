@@ -26,43 +26,75 @@
                     <div class="add-aktivitet">
                         <label for="inputAktivitet">Skriv in aktivitet: </label>
                         <input id="inputAktivitet" type="text" value="">
+                        
+                        <input type="date" id="inputDatum">
+                        
+                        
+                        <label for="kategorier">Kategori:</label>
+                        <select name="Kategorier" id="kategorier">
+                            <option value="städning">Städning</option>
+                            <option value="familj">Familj</option>
+                            <option value="vänner">Vänner</option>
+                            <option value="arbete">Arbete</option>
+                        </select>
+                        
                         <button id="lägg-till" onclick="createAktivitet(inputAktivitet.value)">Lägg till</button>
+                        <br><br>
                     </div>
-
+                        
+                    
                     <div class="resten-av-skiten">
-                        <!-- <label for="inputDatum"> </label> -->
-
-
-                        <!-- <form action="/action_page.php" style="padding-left: 10px;">
-                            <label for="Kategorier">Kategori:</label>
-                            <select name="kategorier" id="Kategorier">
-                                <option value="städning">Städning</option>
-                                <option value="familj">Familj</option>
-                                <option value="vänner">Vänner</option>
-                                <option value="arbete">Arbete</option>
-                            </select>
-
-                            <button id="submit" type="submit" value="Välj">Välj</button> (kanske inte behövs)
-                                <br><br>
-                        </form> -->
 
                         <label class="filtrera" for="inputFilter">Filtrera på: </label>
                         <input onkeyup="filterAktiviteter(inputFilter.value)" id="inputFilter" type="text" value="">
-                    </div>
 
+                        <div class="radiobuttons">
+                            <input type="radio" name="alternativ" id="rad1" value="alla">
+                            <label for="rad1">Alla</label>
+                            <input type="radio" name="alternativ" id="rad2" value="städning">
+                            <label for="rad2">Städning</label>
+                            <input type="radio" name="alternativ" id="rad3" value="vänner">
+                            <label for="rad3">Vänner</label>
+                            <input type="radio" name="alternativ" id="rad4" value="arbete">
+                            <label for="rad4">Arbete</label>
+                        </div>
+                    </div>
                 </div>
 
                 <div class="aktivitet-list">
                     <!-- LIST HEADER -->
-                    <div class="aktivitet-list-header">
+                   <div class="aktivitet-list-header">
                         <span>Aktivitet</span>
-                        <!-- <span>Slutdatum</span>
-                        <span>Kategori</span> -->
+                        <span>Slutdatum</span>
+                        <span>Kategori</span>
                         <div></div>
-                    </div>
+                    </div> 
                     <!-- LIST ITEMS 
-                        Generates from form -->
-                    
+                    Generates from form 
+                    <div class="class-list-item">
+                        <span id="class-list-item-aktivitet">inputAktivitet</span>     
+                        <span id="class-list-item-datum">inputDatum</span>
+                        <span id="class-list-item-kategori">inputKategori</span>
+                        <button onclick="removeAktivitet()">btnText</button>
+                    </div>
+                
+                    -->
+
+                    <!-- <table id="todoTable">
+                        <tr>
+                            <th>Aktivitet</th>
+                            <th>Datum</th>
+                            <th>Kategori</th>
+                            <th>Delete</th>
+                        </tr> 
+                        <tr>
+                            <td>hej</td>
+                            <td>då</td>
+                            <td>re</td>
+                            <td>n</td>
+                        </tr>   
+                    </table> -->
+
 
                 </div>
 

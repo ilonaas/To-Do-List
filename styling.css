@@ -69,10 +69,9 @@ h1 {
 /***********************/
 
 .add-aktivitet {
-    display: flex;
-    flex-direction: column;
+    /* display: flex;
+    flex-direction: column; */
     padding: 10px;
-    margin-bottom: 10px;
 }
 
 .page{
@@ -107,11 +106,10 @@ h1 {
 }
 
 .aktivitet-list-header > * { 
-    flex: 25%;
-    font-size: 20px;
+    font-size: 17px;
 }
 
-.aktivitet-list-item {
+.class-list-item {
     width: 100%;
     display: flex;
     flex-direction: row;
@@ -119,10 +117,9 @@ h1 {
     margin: 2px;
 }
 
-.aktivitet-list-item > * {
+.class-list-item > * {
     margin-right: 30px;
-    padding: 0px 10px;
-    border-radius: 3px;
+    border-radius: 2px;
 }
 
 .make-text-red {
@@ -137,14 +134,15 @@ h1 {
     background-color: rgba(195, 213, 243, 0.246);
 }
 
-input{
+/* input{
     width: 350px;
-}
+} */
 
 #lägg-till{
     width: 80px;
     padding: 4px;
     margin-top: 10px;
+    margin-left: 10px;
 }
 
 #submit{
@@ -154,10 +152,28 @@ input{
 
 #inputAktivitet, #inputFilter{
     padding: 5px;
+    width: 420px;
+}
+
+#inputFilter{
+    padding: 5px;
+    width: 342px;
 }
 
 #kategorier{
-    padding: 10px;
+    padding: 2px;
+}
+
+#inputDate{
+    margin: 0px 10px 0px 0px;
+    padding: 2px;
+}
+
+.radiobuttons{ 
+    margin-top: 10px;
+    display: grid;
+    grid-template-columns: repeat(14, 1fr);
+    justify-items:end;
 }
 
 .items{
@@ -175,3 +191,20 @@ input{
 .hide{
     display: none;
 }
+
+
+/* table {
+  font-family: 'Times New Roman', Times, serif, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+td, th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+}
+
+th {
+    font-weight: bold;
+} */

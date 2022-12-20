@@ -1,23 +1,33 @@
-let classlistEl = document.querySelector(".class-list");
+let classlistEl = document.querySelector(".aktivitet-list");
 //skapar grundelement
 let classListItem = document.createElement("div")
-classListItem.classList.add(".aktivitet-list-item")
-classlistEl.appendChild(aktivitetListItem);
+classListItem.classList.add(".class-list-item")
+classlistEl.appendChild(classListItem);
 
 // Skapar elementen som ska vara i klassraden:
     // <span>inputName</span>
 //skapar sublementen
 let classlistItemAktivitet = document.createElement("span");
-classListItemAktivitet.id = "aktivitet-list-item-aktivitet";
-classListItemAktivitet.innerText = inputAktivitet;
+classlistItemAktivitet.class = "class-list-item-aktivitet";
+classlistItemAktivitet.innerText = inputAktivitet;
+
+let classlistItemDatum = document.createElement("span");
+classlistItemDatum.id = "class-list-item-datum";
+classlistItemDatum.innerText = inputDatum;
+
+let classlistItemKategori = document.createElement("span");
+classlistItemKategori.id = "class-list-item-kategori";
+classlistItemKategori.innerText = inputKategori;
 
 let aktivitetlistItemRemoveButton = document.createElement("button");
-classListItemRemoveButton.innerText = btnText;
-classListItemRemoveButton.onclick = removeAktivitet;
+classlistItemRemoveButton.innerText = btnText;
+classlistItemRemoveButton.onclick = removeAktivitet;
 
 //lägg till sublementen till grundelementet
-classListItem.appendChild(classListItemAktivitet)
-classListItem.appendChild(classListItemRemoveButton)
+classlistItem.appendChild(classListItemAktivitet)
+classlistItem.appendChild(classlistItemDatum)
+classlistItem.appendChild(classlistItemKategori)
+classlistItem.appendChild(classListItemRemoveButton)
 
 
 
@@ -29,14 +39,59 @@ function createAktivitet(inputAktivitet){
     if(document.querySelector('.add-aktivitet input').value.length == 0){
         alert("Du måste skriva in en aktivitet, delli")}
 
+
 classlistEl.innerHTML += `
-        <div class="aktivitet-list-item items">
-            <span> ${inputAktivitet} </span>
+        <div class="class-list-item items">
+            <span class="class-list-item-aktivitet"> ${inputAktivitet} </span>
             <button onclick="removeAktivitet(this.parentElement)">Ta bort </button>
         </div>
  
 ` 
 }
+
+// <span> ${inputDatum} </span>
+            // <span> ${inputKategori}</span>
+
+
+// let aktivitetObj = {
+//     aktivitet: inputAktivitet,
+//     datum: inputDatum,
+//     kategori: inputKategori,
+// }
+//     let inputTypeEl.value;
+
+// 
+
+
+// function createAktivitet(inputAktivitet, inputDatum, inputKategori){
+// }
+
+
+
+ // 
+
+
+
+// function createAktivitet(inputAktivitet){
+//     const DEFAULT_OPTION = "Välj en kategori";
+
+//     let inputElem;
+//     inputDatum;
+//     todoList = [];
+
+//     function getElements() {
+//         inputDatum = documnet.getElementById("inputDatum ")
+//     }
+
+//     function addEntry(event) {
+//         let dateValue = inputDatum.value;
+//         inputDatum.value = "";
+
+// let obj = {
+//     date: dateValue, 
+// . };
+
+
 
 function removeAktivitet(parentElement){
     console.log("tog bort");
@@ -44,36 +99,29 @@ function removeAktivitet(parentElement){
 
 }
 
-// function filterAktiviteter(filterValue){
-//     let classlistElements = document.querySelectorAll(".aktivitet-list-item");
-    
-//     classlistElements.forEach((listItem)=>{
-//         const itemAktivitet = listItem.querySelector("#aktivitet-list-item-aktivitet").innerText;
-
-//         console.log(itemAktivitet, filterValue);
-//         console.log(itemAktivitet, indexOf(filterValue));
-//         if(itemAktivitet.indexOf(filterValue) > -1)
-//         {
-//             value.classList.add("hide");
-
-//         }
-//     });
-// }
-
-
 function filterAktiviteter(filterValue)
 {
-    let classlistElements = document.querySelectorAll(".aktivitet-list-items");
+    let classlistElements = document.querySelectorAll(".class-list-item");
     // let inputValue = document.querySelector("#inputFilter");
 
+    console.log(classlistElements);
+
     classlistElements.forEach((listItem)=>{
-        const itemAktivitet = listItem.querySelector("#aktivitet-list-item-aktivitet").innerText;
-        console.log(itemAktivitet);
+        console.log(listItem);
+
+        const itemAktivitet = listItem.querySelector(".class-list-item-aktivitet").innerText;
+        
+        console.log(itemAktivitet, filterValue);
+        console.log(itemAktivitet.indexOf(filterValue));
         console.log("funkar");
 
-        if(itemAktivitet.indexOf(filterValue) > -1 )
+        if(itemAktivitet.indexOf(filterValue) < 0)
         {
-            value.classlist.add(".hide");
+            listItem.classList.add("hide");
+        }
+        else
+        {
+            listItem.classList.remove("hide");
         }
     });
 }
