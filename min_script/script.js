@@ -1,3 +1,5 @@
+// const CLASS_ITEM_FILTER_ALL = "Alla";
+
 let classlistEl = document.querySelector(".aktivitet-list");
 //skapar grundelement
 let classListItem = document.createElement("div")
@@ -50,7 +52,7 @@ classlistEl.innerHTML += `
 }
 
 // <span> ${inputDatum} </span>
-            // <span> ${inputKategori}</span>
+// <span> ${inputKategori}</span>
 
 
 // let aktivitetObj = {
@@ -60,15 +62,11 @@ classlistEl.innerHTML += `
 // }
 //     let inputTypeEl.value;
 
-// 
 
 
 // function createAktivitet(inputAktivitet, inputDatum, inputKategori){
 // }
 
-
-
- // 
 
 
 
@@ -102,7 +100,7 @@ function removeAktivitet(parentElement){
 function filterAktiviteter(filterValue)
 {
     let classlistElements = document.querySelectorAll(".class-list-item");
-    // let inputValue = document.querySelector("#inputFilter");
+    // let filterType = document.querySelector('input[type="radio"]:checked.filter-type').value;
 
     console.log(classlistElements);
 
@@ -110,6 +108,8 @@ function filterAktiviteter(filterValue)
         console.log(listItem);
 
         const itemAktivitet = listItem.querySelector(".class-list-item-aktivitet").innerText;
+
+        // const itemType = listItem.querySelector(".class-list-item-kategori").innerText;
         
         console.log(itemAktivitet, filterValue);
         console.log(itemAktivitet.indexOf(filterValue));
@@ -119,6 +119,10 @@ function filterAktiviteter(filterValue)
         {
             listItem.classList.add("hide");
         }
+        // else if(itemType !== filterType && filterType !== CLASS_ITEM_FILTER_ALL)
+        // {
+        //     listItem.classList.add("hide");
+        // }
         else
         {
             listItem.classList.remove("hide");
