@@ -1,4 +1,4 @@
-// const CLASS_ITEM_FILTER_ALL = "Alla";
+const CLASS_ITEM_FILTER_ALL = "Alla";
 
 let classlistEl = document.querySelector(".aktivitet-list");
 //skapar grundelement
@@ -21,22 +21,25 @@ let classlistItemKategori = document.createElement("span");
 classlistItemKategori.id = "class-list-item-kategori";
 classlistItemKategori.innerText = inputKategori;
 
-let aktivitetlistItemRemoveButton = document.createElement("button");
+let classlistItemRemoveButton = document.createElement("button");
 classlistItemRemoveButton.innerText = btnText;
 classlistItemRemoveButton.onclick = removeAktivitet;
 
 //lägg till sublementen till grundelementet
-classlistItem.appendChild(classListItemAktivitet)
-classlistItem.appendChild(classlistItemDatum)
-classlistItem.appendChild(classlistItemKategori)
-classlistItem.appendChild(classListItemRemoveButton)
+classListItem.appendChild(classlistItemAktivitet)
+classListItem.appendChild(classlistItemDatum)
+classListItem.appendChild(classlistItemKategori)
+classListItem.appendChild(classlistItemRemoveButton)
 
 
 
 
-function createAktivitet(inputAktivitet){ 
+function createAktivitet(inputAktivitet, inputDatum, inputKategori){ 
+    
+    // ska jani skapa min "container/klassrad":
+    // <div class="class-list-item"></div>
     let classlistEl = document.querySelector(".aktivitet-list");
-
+  
     console.log("la till") 
     if(document.querySelector('.add-aktivitet input').value.length == 0){
         alert("Du måste skriva in en aktivitet, delli")}
@@ -45,62 +48,23 @@ function createAktivitet(inputAktivitet){
 classlistEl.innerHTML += `
         <div class="class-list-item items">
             <span class="class-list-item-aktivitet"> ${inputAktivitet} </span>
+            <span class="class-list-item-datum"> ${inputDatum} </span>
+            <span class="class-list-item-kategori">${inputKategori}</span>
             <button onclick="removeAktivitet(this.parentElement)">Ta bort </button>
         </div>
  
 ` 
 }
 
-// <span> ${inputDatum} </span>
-// <span> ${inputKategori}</span>
-
-
-// let aktivitetObj = {
-//     aktivitet: inputAktivitet,
-//     datum: inputDatum,
-//     kategori: inputKategori,
-// }
-//     let inputTypeEl.value;
-
-
-
-// function createAktivitet(inputAktivitet, inputDatum, inputKategori){
-// }
-
-
-
-
-// function createAktivitet(inputAktivitet){
-//     const DEFAULT_OPTION = "Välj en kategori";
-
-//     let inputElem;
-//     inputDatum;
-//     todoList = [];
-
-//     function getElements() {
-//         inputDatum = documnet.getElementById("inputDatum ")
-//     }
-
-//     function addEntry(event) {
-//         let dateValue = inputDatum.value;
-//         inputDatum.value = "";
-
-// let obj = {
-//     date: dateValue, 
-// . };
-
-
-
 function removeAktivitet(parentElement){
     console.log("tog bort");
     parentElement.remove();
-
 }
 
 function filterAktiviteter(filterValue)
 {
     let classlistElements = document.querySelectorAll(".class-list-item");
-    // let filterType = document.querySelector('input[type="radio"]:checked.filter-type').value;
+    let filterKategori = document.querySelector('input[type="radio"]:checked.filter-kategori').value; //
 
     console.log(classlistElements);
 
@@ -109,23 +73,26 @@ function filterAktiviteter(filterValue)
 
         const itemAktivitet = listItem.querySelector(".class-list-item-aktivitet").innerText;
 
-        // const itemType = listItem.querySelector(".class-list-item-kategori").innerText;
+        const itemKategori = listItem.querySelector(".class-list-item-kategori").innerText; //
         
         console.log(itemAktivitet, filterValue);
         console.log(itemAktivitet.indexOf(filterValue));
-        console.log("funkar");
+        console.log("funkar", filterKategori);
 
         if(itemAktivitet.indexOf(filterValue) < 0)
         {
             listItem.classList.add("hide");
+            console.log(itemKategori, 1);
         }
-        // else if(itemType !== filterType && filterType !== CLASS_ITEM_FILTER_ALL)
-        // {
-        //     listItem.classList.add("hide");
-        // }
+        else if(itemKategori !== filterKategori && filterKategori !== CLASS_ITEM_FILTER_ALL)
+        {
+            listItem.classList.add("hide");
+            console.log(itemKategori, 2);
+        }
         else
         {
             listItem.classList.remove("hide");
+            console.log(itemKategori, 3);
         }
     });
 }

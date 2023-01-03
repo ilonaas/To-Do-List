@@ -26,76 +26,66 @@
                     <div class="add-aktivitet">
                         <label for="inputAktivitet">Skriv in aktivitet: </label>
                         <input id="inputAktivitet" type="text" value="">
-                        
-                        <input type="date" id="inputDatum">
-                        
-                        
-                        <label for="inputKategorier">Kategori:</label>
-                        <select name="Kategorier" id="inputKategorier">
-                            <option value="städning">Städning</option>
-                            <option value="familj">Familj</option>
-                            <option value="vänner">Vänner</option>
-                            <option value="arbete">Arbete</option>
+
+                        <input type="date" id="inputDatum" placeholder="c_date">
+
+                        <label for="inputKategori">Kategori:</label>
+                        <select name="Kategorier" id="inputKategori">
+                            <option value="Städning">Städning</option>
+                            <option value="Vänner">Vänner</option>
+                            <option value="Arbete">Arbete</option>
                         </select>
-                        
-                        <button id="lägg-till" onclick="createAktivitet(inputAktivitet.value)">Lägg till</button>
+
+                        <button id="lägg-till"
+                            onclick="createAktivitet(inputAktivitet.value, inputDatum.value, inputKategori.value)">Lägg
+                            till</button>
                         <br><br>
                     </div>
-                        
-                    
+
+
                     <div class="resten-av-skiten">
 
                         <label class="filtrera" for="inputFilter">Filtrera på: </label>
                         <input onkeyup="filterAktiviteter(inputFilter.value)" id="inputFilter" type="text" value="">
 
                         <div class="radiobuttons">
-                            <input type="radio" name="alternativ" id="rad1" value="alla">
+                            <input id="rad1" type="radio" name="filterKategori" value="Alla" checked="checked" class="filter-kategori"
+
+                                onchange="filterAktiviteter(inputFilter.value)">
                             <label for="rad1">Alla</label>
-                            <input type="radio" name="alternativ" id="rad2" value="städning">
+
+                            <input id="rad2" type="radio" name="filterKategori" value="Städning" class="filter-kategori"
+                                onchange="filterAktiviteter(inputFilter.value)">
                             <label for="rad2">Städning</label>
-                            <input type="radio" name="alternativ" id="rad3" value="vänner">
+
+                            <input id="rad3" type="radio" name="filterKategori" value="Vänner" class="filter-kategori"
+                                onchange="filterAktiviteter(inputFilter.value)">
                             <label for="rad3">Vänner</label>
-                            <input type="radio" name="alternativ" id="rad4" value="arbete">
+
+                            <input id="rad4" type="radio" name="filterKategori" value="Arbete" class="filter-kategori"
+                                onchange="filterAktiviteter(inputFilter.value)">
                             <label for="rad4">Arbete</label>
+
                         </div>
                     </div>
                 </div>
 
                 <div class="aktivitet-list">
                     <!-- LIST HEADER -->
-                   <div class="aktivitet-list-header">
+                    <div class="aktivitet-list-header">
                         <span>Aktivitet</span>
                         <span>Slutdatum</span>
                         <span>Kategori</span>
                         <div></div>
-                    </div> 
+                    </div>
                     <!-- LIST ITEMS 
                     Generates from form 
                     <div class="class-list-item">
                         <span id="class-list-item-aktivitet">inputAktivitet</span>     
                         <span id="class-list-item-datum">inputDatum</span>
-                        <span id="class-list-item-kategori">inputKategori</span>
+                        <span id="class-list-item-type">inputKategori</span>
                         <button onclick="removeAktivitet()">btnText</button>
-                    </div>
-                
-                    -->
-
-                    <!-- <table id="todoTable">
-                        <tr>
-                            <th>Aktivitet</th>
-                            <th>Datum</th>
-                            <th>Kategori</th>
-                            <th>Delete</th>
-                        </tr> 
-                        <tr>
-                            <td>hej</td>
-                            <td>då</td>
-                            <td>re</td>
-                            <td>n</td>
-                        </tr>   
-                    </table> -->
-
-
+                    </div> -->
                 </div>
 
             </main>
@@ -105,6 +95,23 @@
     </div>
 
     <script type="application/javascript" src="/min_script/script.js"> </script>
+    <script>
+        var d = new Date()
+        var yr = d.getFullYear();
+        var month = d.getMonth() + 1;
+
+        if (month < 10) {
+            month = '0' + month
+
+        }
+        var date = d.getDate();
+        if (date < 10) {
+            date = '0' + date
+        }
+        var c_date = yr + "-" + month + "-" + date;
+
+        document.getElementById('inputDatum').value = c_date;
+    </script>
 </body>
 
 </html>
